@@ -7,5 +7,16 @@
         User 1 : {{game.nom1}}
         User 2 : {{game.nom2}}
         New Game !
+        <table border="1">
+            <tbody>
+            {{#game.jetons}}
+                <tr>
+                    {{#.}}
+                        <td>{{.}}</td>
+                    {{/.}}
+                </tr>
+            {{/game.jetons}}
+            </tbody>
+        </table>
     </body>
 </html>
