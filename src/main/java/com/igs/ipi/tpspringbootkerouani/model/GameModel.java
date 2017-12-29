@@ -40,4 +40,14 @@ public class GameModel {
     public void setJetons(Jeton[][] jetons) {
         this.jetons = jetons;
     }
+
+    public void ajouter(Integer index)
+    {
+        for(int h = jetons.length-1; h>0;h--)
+        {
+            if(jetons[h][index] == Jeton.VIDE)
+                jetons[h][index] = Jeton.JAUNE;
+            return;
+        }
+    }
 }
