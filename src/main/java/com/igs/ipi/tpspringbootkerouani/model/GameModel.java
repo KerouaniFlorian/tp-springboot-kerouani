@@ -9,12 +9,23 @@ public class GameModel {
     private String nom2;
     private Jeton[][] jetons = new Jeton[HAUTEUR][LARGEUR];
 
+    public boolean isJoueur() {
+        return joueur;
+    }
+
+    public void setJoueur(boolean joueur) {
+        this.joueur = joueur;
+    }
+
+    private boolean joueur;
+
     public GameModel(){
         for (int i = 0; i < jetons.length; i++){
             for (int j = 0; j < jetons[i].length; j++){
                 jetons[i][j] = Jeton.VIDE;
             }
         }
+        joueur = true;
     }
 
     public String getNom1() {
@@ -41,13 +52,16 @@ public class GameModel {
         this.jetons = jetons;
     }
 
-    public void ajouter(Integer index)
-    {
-        for(int h = jetons.length-1; h>0;h--)
-        {
-            if(jetons[h][index] == Jeton.VIDE)
-                jetons[h][index] = Jeton.JAUNE;
-            return;
+    public void ajouter(Integer index) {
+        for (int h = jetons.length - 1; h > 0; h--) {
+            if (jetons[h][index] == Jeton.VIDE) {
+                Jeton jeton = joueur ? Jeton.ROUGE : Jeton.JAUNE;
+                jetons[h][index] = jeton;
+                joueur = !joueur;
+                return;
+            }
         }
     }
+
+
 }

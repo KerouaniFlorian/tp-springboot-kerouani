@@ -5,7 +5,15 @@
     <body>
         Coucou tout le monde!
         User 1 : {{game.nom1}}
+        {{#game.joueur}}
+        <img src="http://localhost:8081/jeton-jaune.png"/>
+        {{/game.joueur}}
+
+        {{^game.joueur}}
+        <img src="http://localhost:8081/jeton-rouge.png"/>
+        {{/game.joueur}}
         User 2 : {{game.nom2}}
+
         New Game !
         <table border="1">
             <tbody>
